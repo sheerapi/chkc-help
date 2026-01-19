@@ -114,10 +114,12 @@ use chkc_help::{Color, HelpTheme, /* other imports */};
 // in your main function
 let theme = HelpTheme::default(Color::Blue);
 ```
+
 you can specify your accent color of your choice, of course. `HelpTheme::light`, `dark` and
 `new` all exist too, with the latter taking a `mut skin: MadSkin` in case you want some more
 customization. the accent color will still override some stuff though. if you want to render
 the markdown yourself, `render_command_help` and `run_scrollable_help` are exported as well.
+
 ---
 
 alright thats all, bye
