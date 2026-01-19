@@ -35,7 +35,7 @@ pub fn render_command_help(theme: &HelpTheme, page: &HelpPage) {
 
 fn render_header(md: &mut String, page: &HelpPage) {
     if !page.path.is_empty() {
-        md.push_str(&format!("# {} {}\n", page.app_name, page.path))
+        md.push_str(&format!("# {} {}\n", page.app_name, page.path.replace(".", " ")))
     } else if let Some(version) = &page.version {
         md.push_str(&format!("# {} v{}\n", page.app_name, version));
     } else {
