@@ -80,7 +80,7 @@ impl HelpPage {
             .map(|arg| HelpArg {
                 name: arg.get_id().to_string(),
                 description: arg.get_help().map(|s| s.to_string()),
-                required: arg.is_required_set(),
+                required: arg.is_required_set() || arg.get_num_args().unwrap().min_values() == 0,
                 multiple: arg
                     .get_num_args()
                     .map(|n| n.min_values() != n.max_values() || 1 < n.min_values())
