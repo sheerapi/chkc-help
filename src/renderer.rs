@@ -29,7 +29,7 @@ pub fn render_command_help(theme: &HelpTheme, page: &HelpPage) {
     } else {
         let mut doc_skin = theme.skin.clone();
         doc_skin.headers[0].align = termimad::Alignment::Left;
-        println!("{}", doc_skin.term_text(&md));
+        print!("{}", doc_skin.term_text(&md));
     }
 }
 
