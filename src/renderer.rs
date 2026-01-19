@@ -100,8 +100,8 @@ fn render_positionals(md: &mut String, page: &HelpPage) {
             "* `{}`: {} *({}{})*\n",
             arg.name,
             arg.description.as_deref().unwrap_or(""),
-            if arg.required { "~~required~~, " } else { "~~optional~~" },
-            if arg.multiple { "~~multiple~~" } else { "" }
+            if arg.required { "~~required~~" } else { "~~optional~~" },
+            if arg.multiple { ", ~~multiple~~" } else { "" }
         ));
     }
 
