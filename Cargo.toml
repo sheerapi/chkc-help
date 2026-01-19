@@ -1,7 +1,7 @@
 [package]
 name = "chkc-help"
 description = "a small help screen generator for clap"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 readme = "README.md"
 repository = "https://github.com/sheerapi/chkc-help"
