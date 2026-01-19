@@ -1,0 +1,17 @@
+[package]
+name = "chkc-help"
+version = "1.0.0"
+edition = "2021"
+readme = "README.md"
+repository = "https://github.com/sheerapi/chkc-help"
+license = "MIT"
+keywords = ["terminal"]
+categories = ["command-line-interface"]
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.54", features = ["color", "derive"] }
+strip-ansi-escapes = "0.2"
+termimad = "0.34.1"
+unicode-width = "0.2"
+terminal-light = "1.8.0"
