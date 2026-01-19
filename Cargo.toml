@@ -1,5 +1,6 @@
 [package]
 name = "chkc-help"
+description = "a small help screen generator for clap"
 version = "1.0.0"
 edition = "2021"
 readme = "README.md"
