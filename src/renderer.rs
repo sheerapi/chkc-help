@@ -58,11 +58,19 @@ fn render_header(md: &mut String, page: &HelpPage) {
 }
 
 fn render_usage(md: &mut String, page: &HelpPage) {
-    let usage = page.usage.replace("Usage:", "").trim().to_owned();
-    md.push_str(&format!(
-        "**Usage:** `{}`\n",
-        usage
-    ));
+    let mut usage = page.usage.replace("Usage:", "").trim().to_owned();
+    let binding = std::env::current_exe().expect("Failed to get executable path");
+    let exec_name = binding
+        .file_name()
+        .expect("Failed to get executable name")
+        .to_str()
+        .unwrap();
+
+    if !usage.starts_with(exec_name) {
+        usage.insert_str(0, &format!("{} ", exec_name));
+    }
+
+    md.push_str(&format!("**Usage:** `{}`\n", usage));
 }
 
 fn render_subcommands(md: &mut String, page: &HelpPage) {
@@ -100,7 +108,11 @@ fn render_positionals(md: &mut String, page: &HelpPage) {
             "* `{}`: {} *({}{})*\n",
             arg.name,
             arg.description.as_deref().unwrap_or(""),
-            if arg.required { "~~required~~" } else { "~~optional~~" },
+            if arg.required {
+                "~~required~~"
+            } else {
+                "~~optional~~"
+            },
             if arg.multiple { ", ~~multiple~~" } else { "" }
         ));
     }
